@@ -9,8 +9,20 @@
 </head>
 <body>
 
+    <div class="painel">
+        <div class="vidas">
+            <img src="imagens/coracao_vazio.png" alt="">
+            <img src="imagens/coracao_cheio.png" alt="">
+            <img src="imagens/coracao_cheio.png" alt="">
+        </div>
+        <div class="cronometro">Tempo restante: </div>
+    </div>
+
+
     <script>
-        posicaoRandomica()
+        setInterval(function() {
+            posicaoRandomica()
+        }, 1000); // Remove o elemento a cada segundo
     </script>
 
 </body>
