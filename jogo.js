@@ -17,7 +17,7 @@ function posicaoRandomica() {
       mosquitoAnterior.remove();
       if(vidas > 3) {
         alert("Você perdeu todas as vidas! Tente novamente.");
-        window.location.reload(); // Reinicia o jogo
+        window.location.href = "fim_jogo.html"; // Reinicia o jogo
       }
       document.getElementById("v" + vidas).src = "imagens/coracao_vazio.png"; // Atualiza a imagem do coração
       vidas++; // Incrementa o número de vidas
