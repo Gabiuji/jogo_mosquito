@@ -2,7 +2,7 @@
 var largura = 0;
 var altura = 0;
 var vidas = 1;
-var tempo = 10; // Tempo de jogo em segundos
+var tempo = 15; // Tempo de jogo em segundos
 var criaMoscaTempo = 2000; // Tempo de criação de moscas em milissegundos
 
 var nivel = window.location.search; // Pega o nível do jogo da URL
