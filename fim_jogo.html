@@ -3,28 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perdeu</title>
+    <title>Fim de Jogo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="d-flex justify-content-center">
-                    <img src="imagens/game_over.png" alt="">
+        <!-- Div de derrota -->
+         <div id="derrota">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <img src="imagens/game_over.png" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="d-flex justify-content-center align-items-center flex-column">
-                    <h1>Você Perdeu!</h1> <br>
-                    <a href="index.html" class="btn btn-dark">Voltar ao Início</a> <br>
-                    <a href="app.html" class="btn btn-dark">Tentar Novamente</a>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <h1>Você Perdeu!</h1> <br>
+                        <a href="index.html" class="btn btn-dark">Voltar ao Início</a> <br>
+                        <a href="app.html" class="btn btn-dark">Tentar Novamente</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <!-- Div de vitória -->
+        <div id="vitoria">
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <img src="imagens/vitoria.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <a href="index.html" class="btn btn-success">Voltar ao Início</a> <br>
+                        <a href="app.html" class="btn btn-success">Jogar Novamente</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // Obtém o parâmetro da URL
+        const params = new URLSearchParams(window.location.search);
+        const resultado = params.get('resultado');
+    
+        // Exibe a div correspondente
+        if (resultado === 'vitoria') {
+            document.getElementById('vitoria').style.display = 'block';
+            document.getElementById('derrota').style.display = 'none';
+        } else if (resultado === 'derrota') {
+            document.getElementById('vitoria').style.display = 'none';
+            document.getElementById('derrota').style.display = 'block';
+        }
+    </script>
 </body>
 </html>

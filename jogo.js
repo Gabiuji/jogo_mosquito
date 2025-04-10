@@ -2,12 +2,27 @@
 var largura = 0;
 var altura = 0;
 var vidas = 1;
+var tempo = 10; // Tempo de jogo em segundos
 
 function ajustarTamanho() {
   largura = window.innerWidth;
   altura = window.innerHeight;
 }
 ajustarTamanho();
+
+var cronometro = setInterval(function() {
+  tempo--; // Decrementa o tempo a cada segundo
+
+  if (tempo < 0) {
+    clearInterval(cronometro); // Para o cronômetro
+    clearInterval(criaMosca); // Para a criação de moscas
+    alert("Fim de jogo! Você venceu!"); // Mensagem de fim de jogo
+    window.location.href = "fim_jogo.html?resultado=vitoria"; // Redireciona para a página de fim de jogo
+  } else{
+    document.getElementById("cronometro").innerHTML = tempo; // Atualiza o cronômetro na tela
+  }
+
+}, 1000); // 1000 ms = 1 segundo
 
 function posicaoRandomica() {
 
@@ -17,7 +32,7 @@ function posicaoRandomica() {
       mosquitoAnterior.remove();
       if(vidas > 3) {
         alert("Você perdeu todas as vidas! Tente novamente.");
-        window.location.href = "fim_jogo.html"; // Reinicia o jogo
+        window.location.href = "fim_jogo.html?resultado=derrota"; // Reinicia o jogo
       }
       document.getElementById("v" + vidas).src = "imagens/coracao_vazio.png"; // Atualiza a imagem do coração
       vidas++; // Incrementa o número de vidas
@@ -42,12 +57,10 @@ function posicaoRandomica() {
 
     mosquito.onclick = function() {
         this.remove(); // Remove o mosquito ao clicar nele
-        posicaoRandomica(); // Chama a função novamente para criar um novo mosquito
     }
 
     document.body.appendChild(mosquito);
     
-
 }
 
 function tamanhoAleatorio(){
