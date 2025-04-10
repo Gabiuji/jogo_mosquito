@@ -3,6 +3,18 @@ var largura = 0;
 var altura = 0;
 var vidas = 1;
 var tempo = 10; // Tempo de jogo em segundos
+var criaMoscaTempo = 2000; // Tempo de criação de moscas em milissegundos
+
+var nivel = window.location.search; // Pega o nível do jogo da URL
+nivel = nivel.replace("?", ""); // Remove o '?' da string
+
+if (nivel === "facil") {
+  criaMoscaTempo = 2000; // Tempo de criação de moscas para o nível fácil
+} else if (nivel === "normal") {
+  criaMoscaTempo = 1300; // Tempo de criação de moscas para o nível normal
+} else if (nivel === "dificil") {
+  criaMoscaTempo = 750; // Tempo de criação de moscas para o nível difícil
+}
 
 function ajustarTamanho() {
   largura = window.innerWidth;
